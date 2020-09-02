@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/util/constants.dart' as Constants;
+import 'package:to_do_app/wdgets/tasks_list.dart';
 
 class TasksScreen extends StatelessWidget {
   @override
@@ -39,6 +40,7 @@ class TasksScreen extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20))),
+              child: TasksList(),
             ),
           )
         ],
