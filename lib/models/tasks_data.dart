@@ -22,10 +22,21 @@ class TaskData extends ChangeNotifier {
     SharedPref sharedPref = SharedPref();
     try {
       TaskData().setTasks(TaskData.decodeTasks(await sharedPref.read("tasks")));
-      print(TaskData().getTasks().length);
+      // print(TaskData().getTasks().length);
     } catch (Excepetion) {
       print("Nothing to load");
     }
+  }
+
+  int getCountCompletedTasks() {
+    int counter = 0;
+    for (Task task in _tasks) {
+      if (task.isDone == false) {
+        counter += 1;
+      }
+    }
+    notifyListeners();
+    return counter;
   }
 
   List<Task> getTasks() {

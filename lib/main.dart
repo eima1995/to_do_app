@@ -12,6 +12,18 @@ void main() async {
   runApp(MyApp());
 }
 
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return ChangeNotifierProvider(
+//       builder: (context) => TaskData(),
+//       child: MaterialApp(
+//         home: TasksScreen(),
+//       ),
+//     );
+//   }
+// }
+
 class MyApp extends StatefulWidget {
   _MyApp createState() => _MyApp();
 }

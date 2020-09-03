@@ -6,8 +6,6 @@ import 'package:to_do_app/models/tasks_data.dart';
 class TasksList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // print("taskList");
-    TaskData().loadSharedPrefs();
     return Consumer<TaskData>(
       builder: (context, taskData, child) {
         return Theme(
@@ -31,22 +29,5 @@ class TasksList extends StatelessWidget {
         );
       },
     );
-
-    // ListView(
-    //   children: <Widget>[
-    //     TaskTile(
-    //       taskTitle: "Go to gym",
-    //       isChecked: true,
-    //       checkBoxCallBack: (bool checkBoxState) {},
-    //       longPressCallBack: () {},
-    //     ),
-    //     TaskTile(
-    //       taskTitle: "Go to gym",
-    //       isChecked: false,
-    //       checkBoxCallBack: (bool checkBoxState) {},
-    //       longPressCallBack: () {},
-    //     ),
-    //   ],
-    // );
   }
 }
