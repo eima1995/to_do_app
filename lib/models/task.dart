@@ -11,4 +11,8 @@ class Task {
   Task.fromJson(Map<String, dynamic> json)
       : name = json['name'],
         isDone = json['isDone'];
+
+  void toogleDone() {
+    isDone = !isDone;
+  }
 }

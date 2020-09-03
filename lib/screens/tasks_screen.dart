@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/util/constants.dart' as Constants;
 import 'package:to_do_app/wdgets/tasks_list.dart';
+import 'package:to_do_app/screens/add_task_screen.dart';
 
 class TasksScreen extends StatelessWidget {
   @override
@@ -11,7 +12,16 @@ class TasksScreen extends StatelessWidget {
           backgroundColor:
               Constants.TASKS_SCREEN_FLOATING_ACTION_BUTTON_BACKGROUND_COLOR,
           child: Icon(Icons.add),
-          onPressed: null),
+          onPressed: () {
+            showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                builder: (context) => SingleChildScrollView(
+                    child: Container(
+                        padding: EdgeInsets.only(
+                            bottom: MediaQuery.of(context).viewInsets.bottom),
+                        child: AddTaskScreen())));
+          }),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

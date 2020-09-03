@@ -1,19 +1,26 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:to_do_app/models/task.dart';
 // import 'dart:collection';
 // import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
-// class TaskData extends ChangeNotifier {
-class TaskData {
+class TaskData extends ChangeNotifier {
+// class TaskData {
   static List<Task> _tasks = [
     // Task(name: 'Buy milk'),
     // Task(name: 'Buy bread'),
   ];
 
-  // Get tasks from shared preferences
   List<Task> getTasks() {
     return _tasks;
+  }
+
+  int getCount() {
+    return _tasks.length;
+  }
+
+  setTasks(List<Task> tasks) {
+    _tasks = tasks;
   }
 
   static Map<String, dynamic> toMap(Task task) => {
@@ -29,14 +36,31 @@ class TaskData {
       (json.decode(task) as List<dynamic>)
           .map<Task>((task) => Task.fromJson(task))
           .toList();
-}
 
-void main() {
-  final String encodedData = TaskData.encodeTasks([
-    Task(name: 'Buy milk'),
-    Task(name: 'Buy bread'),
-  ]);
-  print(encodedData);
+  void addTask(String name) {
+    final task = Task(name: name);
+    _tasks.add(task);
+    notifyListeners();
+  }
 
-  print(TaskData.decodeTasks(encodedData)[0].name);
+  void updateTask(Task task) {
+    task.toogleDone();
+    notifyListeners();
+  }
+
+  void deleteTask(Task task) {
+    _tasks.remove(task);
+    notifyListeners();
+  }
+
+  int getCountToDo() {
+    int counter = 0;
+    for (Task task in _tasks) {
+      if (task.isDone) {
+        counter += 1;
+      }
+    }
+    notifyListeners();
+    return counter;
+  }
 }
