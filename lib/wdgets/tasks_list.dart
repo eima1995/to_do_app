@@ -6,6 +6,8 @@ import 'package:to_do_app/models/tasks_data.dart';
 class TasksList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // print("taskList");
+    TaskData().loadSharedPrefs();
     return Consumer<TaskData>(
       builder: (context, taskData, child) {
         return Theme(

@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/util/constants.dart' as Constants;
 import 'package:to_do_app/wdgets/tasks_list.dart';
 import 'package:to_do_app/screens/add_task_screen.dart';
+import 'package:to_do_app/models/tasks_data.dart';
+import 'package:provider/provider.dart';
 
 class TasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // return Consumer<TaskData>(builder: (context, taskData, child) {
     return Scaffold(
       backgroundColor: Constants.TASKS_SCREEN_BACKGROUND_COLOR,
       floatingActionButton: FloatingActionButton(
@@ -56,5 +59,6 @@ class TasksScreen extends StatelessWidget {
         ],
       ),
     );
+    // });
   }
 }

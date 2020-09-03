@@ -3,6 +3,7 @@ import 'package:to_do_app/models/task.dart';
 // import 'dart:collection';
 // import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+import 'package:to_do_app/models/sharedPref.dart';
 
 class TaskData extends ChangeNotifier {
 // class TaskData {
@@ -10,6 +11,22 @@ class TaskData extends ChangeNotifier {
     // Task(name: 'Buy milk'),
     // Task(name: 'Buy bread'),
   ];
+
+  void saveTasksToMemory() {
+    SharedPref sharedPref = SharedPref();
+    final String encodedData = TaskData.encodeTasks(_tasks);
+    sharedPref.save('tasks', encodedData);
+  }
+
+  void loadSharedPrefs() async {
+    SharedPref sharedPref = SharedPref();
+    try {
+      TaskData().setTasks(TaskData.decodeTasks(await sharedPref.read("tasks")));
+      print(TaskData().getTasks().length);
+    } catch (Excepetion) {
+      print("Nothing to load");
+    }
+  }
 
   List<Task> getTasks() {
     return _tasks;
@@ -40,16 +57,19 @@ class TaskData extends ChangeNotifier {
   void addTask(String name) {
     final task = Task(name: name);
     _tasks.add(task);
+    saveTasksToMemory();
     notifyListeners();
   }
 
   void updateTask(Task task) {
     task.toogleDone();
+    saveTasksToMemory();
     notifyListeners();
   }
 
   void deleteTask(Task task) {
     _tasks.remove(task);
+    saveTasksToMemory();
     notifyListeners();
   }
 
