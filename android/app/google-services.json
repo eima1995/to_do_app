@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "945609804394",
+    "firebase_url": "https://simple-to-do-app-82f94.firebaseio.com",
+    "project_id": "simple-to-do-app-82f94",
+    "storage_bucket": "simple-to-do-app-82f94.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945609804394:android:f61c654cf0e7d8c8691813",
+        "android_client_info": {
+          "package_name": "com.aeappss.to_do_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945609804394-sqskenp7bge8vas1q98n3kbvfv0ao8b6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHvPzNKhZ2uHZUMqA21_BuLPHOAOQfCRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945609804394-sqskenp7bge8vas1q98n3kbvfv0ao8b6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

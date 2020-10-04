@@ -3,10 +3,34 @@ import 'package:provider/provider.dart';
 import 'package:to_do_app/models/tasks_data.dart';
 import 'package:to_do_app/wdgets/tasks_list.dart';
 import 'add_task_screen.dart';
-
-// import 'package:to_do_app/screens/add_task_screen';
+import 'package:firebase_admob/firebase_admob.dart';
+import 'package:to_do_app/util/constants.dart';
 
 class TasksScreen extends StatelessWidget {
+  BannerAd bannerAd;
+
+  TasksScreen() {
+    // FirebaseAdMob.instance.initialize(appId: FirebaseAdMob.testAppId);
+    // FirebaseAdMob.instance.initialize(appId: appId);
+    // bannerAd = createBannerAd()..load();
+    // bannerAd
+    //   ..load()
+    //   ..show(
+    //     anchorType: AnchorType.top,
+    //   );
+  }
+
+  BannerAd createBannerAd() {
+    return BannerAd(
+      // adUnitId: BannerAd.testAdUnitId,
+      adUnitId: bannerID,
+      size: AdSize.banner,
+      listener: (MobileAdEvent event) {
+        print("BannerAd event $event");
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

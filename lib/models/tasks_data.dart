@@ -8,7 +8,7 @@ import 'package:to_do_app/models/sharedPref.dart';
 class TaskData extends ChangeNotifier {
 // class TaskData {
   static List<Task> _tasks = [
-    // Task(name: 'Buy milk'),
+    Task(name: 'Buy milk'),
     // Task(name: 'Buy bread'),
   ];
 
